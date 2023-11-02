@@ -1,0 +1,25 @@
+body {
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+
+}
+
+ /* #answercontainer{
+
+display: block;
+flex-direction: row;
+justify-content: center;
+} 
+
+
+.smallanswer{
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+
+
+}  */
