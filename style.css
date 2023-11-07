@@ -1,11 +1,26 @@
-body {
+/* body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     margin: 0;
+    background-color: aquamarine;
 
+} */
+
+
+
+#strike1{
+    display: none;
 }
+#strike3{
+    display: none;
+}
+#strike2{
+    display: none;
+}
+
+
 
  /* #answercontainer{
 
