@@ -9,6 +9,7 @@ const strikeBtn = document.getElementById('strikeBtn');
 const strike1 = document.getElementById('strike1');
 const strike2 = document.getElementById('strike2');
 const strike3 = document.getElementById('strike3');
+const xbox = document.getElementById('xbox');
 
 
 let strikeTotal = 0;
@@ -67,6 +68,8 @@ function strike() {
 
     if (strikeTotal == 0) {
         strike1.style.display = 'block';
+        xbox.style.display = 'block';
+
         strikeTotal++;
     }else if(strikeTotal==1){
         strike2.style.display = 'block';
