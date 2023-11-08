@@ -21,6 +21,7 @@ const audioIncorrect = document.getElementById('incorrectAudio');
 const audioSwitch = document.getElementById('audioSwitch');
 const newQuestionAudio = document.getElementById('newQuestionAudio');
 
+const showAnswersEl = document.getElementById('showAnswers'); //points to the show answers button in the DOM
 
 let strikeTotal = 0; //keeps track of how many strikes the active team has
 let questionIndex = 0; //indicates which question we are on
@@ -187,6 +188,22 @@ function newQuestion(){
 }
 
 
+function showAnswers(){
+    answerbtn1.classList.add('btn-light');
+    answerbtn1.innerHTML = currentQuestion.answers[0].answer;
+    answerbtn2.classList.add('btn-light');
+    answerbtn2.innerHTML = currentQuestion.answers[1].answer;
+    answerbtn3.classList.add('btn-light');
+    answerbtn3.innerHTML = currentQuestion.answers[2].answer;
+    answerbtn4.classList.add('btn-light');
+    answerbtn4.innerHTML = currentQuestion.answers[3].answer;
+    answerbtn5.classList.add('btn-light');
+    answerbtn5.innerHTML = currentQuestion.answers[4].answer;
+    answerbtn6.classList.add('btn-light');
+    answerbtn6.innerHTML = currentQuestion.answers[5].answer;
+    playCorrect();
+}
+
 
 answerbtn1.addEventListener('click', answer1);
 answerbtn2.addEventListener('click', answer2);
@@ -204,6 +221,8 @@ questionBox.addEventListener('click', nextQuestion);
 
 team1card.addEventListener('click', team1active);
 team2card.addEventListener('click', team2active);
+
+showAnswersEl.addEventListener('click', showAnswers)
 
 
 
