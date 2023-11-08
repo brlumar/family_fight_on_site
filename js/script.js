@@ -26,6 +26,13 @@ const showAnswersEl = document.getElementById('showAnswers'); //points to the sh
 const score1El = document.getElementById('score1');//points to the score for team 1 in the DOM
 const score2El = document.getElementById('score2');//points to the score for team 2 in the DOM
 
+const howToBtn = document.getElementById('howToBtn'); //points to the how to play button on the DOM
+const howTo = document.getElementById('howTo'); //points to the section of the dom that shows the how to play modal
+const hideHowToBtn = document.getElementById('hide-how-to');//points to "back to game" btn
+const playarea = document.getElementById('gamecard');
+
+
+
 
 let strikeTotal = 0; //keeps track of how many strikes the active team has
 let questionIndex = 0; //indicates which question we are on
@@ -283,6 +290,29 @@ score2El.innerHTML = team2score;
 clearCard();
 }
 
+function showHowTo() { //shows the instructions when "How To Play" is clicked
+    howTo.style.display = 'block';
+hidePlayArea();    
+}
+
+function hideHowTo() { //shows the instructions when "How To Play" is clicked
+    howTo.style.display = 'none';
+    showPlayArea();
+
+}
+
+function showPlayArea() {
+
+    playarea.style.display = 'flex';
+
+}
+
+function hidePlayArea() {
+
+    playarea.style.display = 'none';
+
+}
+
 
 answerbtn1.addEventListener('click', answer1);
 answerbtn2.addEventListener('click', answer2);
@@ -304,6 +334,9 @@ team2card.addEventListener('click', team2active);
 showAnswersEl.addEventListener('click', showAnswers);
 
 resetBtnEl.addEventListener('click', resetScores);
+
+howToBtn.addEventListener('click', showHowTo);
+hideHowToBtn.addEventListener('click', hideHowTo);
 
 
 
