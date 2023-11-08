@@ -5,7 +5,7 @@ const answerbtn4 = document.getElementById('answerbtn4');
 const answerbtn5 = document.getElementById('answerbtn5');
 const answerbtn6 = document.getElementById('answerbtn6');
 const questionBox = document.getElementById('questionBox');
-
+const resetBtnEl = document.getElementById('resetBtn');
 
 const strikeBtn = document.getElementById('strikeBtn');
 const strike1 = document.getElementById('strike1');
@@ -23,9 +23,16 @@ const newQuestionAudio = document.getElementById('newQuestionAudio');
 
 const showAnswersEl = document.getElementById('showAnswers'); //points to the show answers button in the DOM
 
+const score1El = document.getElementById('score1');//points to the score for team 1 in the DOM
+const score2El = document.getElementById('score2');//points to the score for team 2 in the DOM
+
+
 let strikeTotal = 0; //keeps track of how many strikes the active team has
 let questionIndex = 0; //indicates which question we are on
 let whichTeam = 1;
+
+let team1score = 0;//container for team 1's total score
+let team2score = 0;//container for team 2's total score
 
 function removeStrikes() { //Removes strike for new turn
     xbox.style.display = 'none';
@@ -36,7 +43,7 @@ function removeStrikes() { //Removes strike for new turn
 }
 
 function clearCard() {
-    questionBox.innerHTML = '';
+    questionBox.innerHTML = 'Click Here For Next Question';
     answerbtn1.classList.remove('btn-light');
     answerbtn2.classList.remove('btn-light');
     answerbtn3.classList.remove('btn-light');
@@ -75,6 +82,17 @@ function answer1() {
     answerbtn1.innerHTML = currentQuestion.answers[0].answer;
     playCorrect();
 
+    if (whichTeam == 1) {
+        team1score = team1score + currentQuestion.answers[0].points;
+        console.log("Team 1's score is, ",team1score);
+        score1El.innerHTML = team1score;
+    } else {
+        team2score = team2score + currentQuestion.answers[0].points;
+        console.log("Team 2's score is, ",team2score);
+
+        score2El.innerHTML = team2score;
+    }
+
 
 }
 
@@ -85,6 +103,17 @@ function answer2() {
     answerbtn2.innerHTML = currentQuestion.answers[1].answer;
     playCorrect();
 
+    if (whichTeam == 1) {
+        team1score = team1score + currentQuestion.answers[1].points;
+        console.log("Team 1's score is, ",team1score);
+        score1El.innerHTML = team1score;
+    } else {
+        team2score = team2score + currentQuestion.answers[1].points;
+        console.log("Team 2's score is, ",team2score);
+
+        score2El.innerHTML = team2score;
+    }
+
 }
 
 function answer3() {
@@ -93,6 +122,17 @@ function answer3() {
     answerbtn3.classList.add('btn-light');
     answerbtn3.innerHTML = currentQuestion.answers[2].answer;
     playCorrect();
+
+    if (whichTeam == 1) {
+        team1score = team1score + currentQuestion.answers[2].points;
+        console.log("Team 1's score is, ",team1score);
+        score1El.innerHTML = team1score;
+    } else {
+        team2score = team2score + currentQuestion.answers[2].points;
+        console.log("Team 2's score is, ",team2score);
+
+        score2El.innerHTML = team2score;
+    }
 
 }
 
@@ -103,6 +143,16 @@ function answer4() {
     answerbtn4.innerHTML = currentQuestion.answers[3].answer;
     playCorrect();
 
+    if (whichTeam == 1) {
+        team1score = team1score + currentQuestion.answers[3].points;
+        console.log("Team 1's score is, ",team1score);
+        score1El.innerHTML = team1score;
+    } else {
+        team2score = team2score + currentQuestion.answers[3].points;
+        console.log("Team 2's score is, ",team2score);
+
+        score2El.innerHTML = team2score;
+    }
 }
 
 function answer5() {
@@ -112,6 +162,16 @@ function answer5() {
     answerbtn5.innerHTML = currentQuestion.answers[4].answer;
     playCorrect();
 
+    if (whichTeam == 1) {
+        team1score = team1score + currentQuestion.answers[4].points;
+        console.log("Team 1's score is, ",team1score);
+        score1El.innerHTML = team1score;
+    } else {
+        team2score = team2score + currentQuestion.answers[4].points;
+        console.log("Team 2's score is, ",team2score);
+
+        score2El.innerHTML = team2score;
+    }
 }
 function answer6() {
     console.log('answer6 is clicked')
@@ -119,6 +179,17 @@ function answer6() {
     answerbtn6.classList.add('btn-light');
     answerbtn6.innerHTML = currentQuestion.answers[5].answer;
     playCorrect();
+
+    if (whichTeam == 1) {
+        team1score = team1score + currentQuestion.answers[5].points;
+        console.log("Team 1's score is, ",team1score);
+        score1El.innerHTML = team1score;
+    } else {
+        team2score = team2score + currentQuestion.answers[5].points;
+        console.log("Team 2's score is, ",team2score);
+
+        score2El.innerHTML = team2score;
+    }
 
 }
 function strikeone() {
@@ -153,7 +224,7 @@ function strike() {
     }
 }
 
-function team1active(){
+function team1active() {
     team1card.style.backgroundColor = 'greenyellow';
     team2card.style.backgroundColor = 'white';
     console.log("team 1 is active");
@@ -162,7 +233,7 @@ function team1active(){
 
 }
 
-function team2active(){
+function team2active() {
     team1card.style.backgroundColor = 'white';
     team2card.style.backgroundColor = 'greenyellow';
     console.log("team 2 is active");
@@ -183,12 +254,12 @@ function switchTeamAudio() {
     audioSwitch.play();
 }
 
-function newQuestion(){
+function newQuestion() {
     newQuestionAudio.play();
 }
 
 
-function showAnswers(){
+function showAnswers() {
     answerbtn1.classList.add('btn-light');
     answerbtn1.innerHTML = currentQuestion.answers[0].answer;
     answerbtn2.classList.add('btn-light');
@@ -202,6 +273,14 @@ function showAnswers(){
     answerbtn6.classList.add('btn-light');
     answerbtn6.innerHTML = currentQuestion.answers[5].answer;
     playCorrect();
+}
+
+function resetScores(){
+team1score = 0;
+team2score = 0;
+score1El.innerHTML = team1score;
+score2El.innerHTML = team2score;
+clearCard();
 }
 
 
@@ -222,7 +301,9 @@ questionBox.addEventListener('click', nextQuestion);
 team1card.addEventListener('click', team1active);
 team2card.addEventListener('click', team2active);
 
-showAnswersEl.addEventListener('click', showAnswers)
+showAnswersEl.addEventListener('click', showAnswers);
+
+resetBtnEl.addEventListener('click', resetScores);
 
 
 
