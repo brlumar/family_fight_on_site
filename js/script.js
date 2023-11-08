@@ -18,7 +18,8 @@ const team2card = document.getElementById('team2card');
 
 const audioCorrect = document.getElementById('correctAudio');
 const audioIncorrect = document.getElementById('incorrectAudio');
-
+const audioSwitch = document.getElementById('audioSwitch');
+const newQuestionAudio = document.getElementById('newQuestionAudio');
 
 
 let strikeTotal = 0; //keeps track of how many strikes the active team has
@@ -56,7 +57,9 @@ function nextQuestion() {
     clearCard();
     currentQuestion = cardData[questionIndex];
     questionBox.innerHTML = currentQuestion.phrase;
-
+    newQuestion();
+    team1card.style.backgroundColor = 'white';
+    team2card.style.backgroundColor = 'white';
 
 
     questionIndex++;
@@ -153,6 +156,7 @@ function team1active(){
     team1card.style.backgroundColor = 'greenyellow';
     team2card.style.backgroundColor = 'white';
     console.log("team 1 is active");
+    switchTeamAudio();
     whichTeam = 1;
 
 }
@@ -161,6 +165,7 @@ function team2active(){
     team1card.style.backgroundColor = 'white';
     team2card.style.backgroundColor = 'greenyellow';
     console.log("team 2 is active");
+    switchTeamAudio();
     whichTeam = 2;
 }
 
@@ -171,6 +176,14 @@ function playCorrect() {
 
 function playIncorrect() {
     audioIncorrect.play();
+}
+
+function switchTeamAudio() {
+    audioSwitch.play();
+}
+
+function newQuestion(){
+    newQuestionAudio.play();
 }
 
 
